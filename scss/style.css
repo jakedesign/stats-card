@@ -17,7 +17,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-h1, h2, h3, h4, p {
+h1, h2, h3, h4, h5, p {
   margin: 0;
   color: white;
 }
@@ -37,36 +37,48 @@ html {
           box-sizing: border-box;
 }
 
-.card--container {
+.card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-container .card-grid {
   display: -ms-grid;
   display: grid;
-  place-content: center;
-  height: 100vh;
+  margin: 0 5rem;
+  -ms-grid-columns: 32.7rem;
+      grid-template-columns: 32.7rem;
+  -ms-grid-rows: 24rem 54rem;
+      grid-template-rows: 24rem 54rem;
+      grid-template-areas: "image" "body";
 }
 
-.card--container .card--body {
-  background-color: #1b1938;
-  width: 32.7rem;
-  height: 78rem;
-  border-radius: 0.8rem;
-}
-
-.card--container .card--body .card--image {
+.card-container .card-grid .card-image {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: image;
+  position: relative;
   background-image: url(../images/image-header-mobile.jpg);
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 24rem;
-  border-top-left-radius: 0.8rem;
-  border-top-right-radius: 0.8rem;
-  position: relative;
+  border-radius: 0.8rem 0.8rem 0 0;
 }
 
-.card--container .card--body .card--image .card--image::after {
-  content: "";
-}
-
-.card--container .card--body .card--info {
+.card-container .card-grid .card-body {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: body;
+  background: #1b1938;
+  border-radius: 0 0 0.8rem 0.8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,13 +89,13 @@ html {
   text-align: center;
 }
 
-.card--container .card--body .card--info h1 {
+.card-container .card-grid .card-body .card-info h4 {
   font-size: 2.8rem;
   padding: 3rem 3rem 2rem 3rem;
   font-weight: 700;
 }
 
-.card--container .card--body .card--info p {
+.card-container .card-grid .card-body .card-info p {
   padding: 0 3rem;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.75);
@@ -91,11 +103,11 @@ html {
   font-weight: 400;
 }
 
-.card--container .card--body .card--info span {
+.card-container .card-grid .card-body .card-info span {
   color: #aa5cdb;
 }
 
-.card--container .card--body .card--stats {
+.card-container .card-grid .card-body .card-stat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,29 +115,51 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  gap: 2rem;
+  gap: 2.5rem;
   padding: 4rem;
 }
 
-.card--container .card--body .card--stats h2 {
+.card-container .card-grid .card-body .card-statnum h5 {
   font-size: 2.4rem;
   font-weight: 700;
 }
 
-.card--container .card--body .card--stats p {
+.card-container .card-grid .card-body .card-statnum p {
   font-size: 1.2rem;
-  font-family: "Lexend Deca", sans-serif;
-  font-weight: 400;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Lexend Deca", sans-serif;
   padding-top: 0.5rem;
+  font-weight: 400;
+}
+
+.card-container .card-grid .card-overlay {
+  background-color: #aa5cdb;
+  border-radius: 0.8rem 0.8rem 0 0;
+  opacity: 0.75;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+
+@media only screen and (min-width: 890px) {
+  .card-container .card-grid {
+    -ms-grid-columns: minmax(35rem, 57rem) minmax(32rem, 54rem);
+        grid-template-columns: minmax(35rem, 57rem) minmax(32rem, 54rem);
+    -ms-grid-rows: 44.6rem;
+        grid-template-rows: 44.6rem;
+        grid-template-areas: "body image";
+  }
+  .card-container .card-grid .card-image {
+    border-radius: 0 0.8rem 0.8rem 0;
+  }
+  .card-container .card-grid .card-body {
+    border-radius: 0.8rem 0 0 0.8rem;
+  }
+  .card-container .card-grid .card-overlay {
+    border-radius: 0 0.8rem 0.8rem 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

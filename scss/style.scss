@@ -26,7 +26,7 @@ body {
     background: $background-primary;
     font-family: 'Inter', sans-serif;
 }
-h1, h2, h3, h4, p {
+h1, h2, h3, h4, h5, p {
     margin: 0;
     color: $color-primary;
 }
@@ -45,73 +45,109 @@ html {
     box-sizing: border-box;
 }
 
+
+
 // CARD
 
-.card--container {
-    display: grid;
-    place-content: center;
+.card-container {
+    display: flex;
     height: 100vh;
-    .card--body {
-        background-color: $background-secondary ;
-        width: 32.7rem;
-        height: 78rem;
-        border-radius: 0.8rem;
-        .card--image {
+    justify-content: center;
+    align-items: center;
+    .card-grid {
+        display: grid;
+        margin: 0 5rem;
+        grid-template-columns: 32.7rem;
+        grid-template-rows: 24rem 54rem;
+        grid-template-areas: 
+        "image"
+        "body";
+        .card-image {
+            grid-area: image;
+            position: relative;
             background-image: url(../images/image-header-mobile.jpg);
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
-            height: 24rem;
-            border-top-left-radius: 0.8rem;
-            border-top-right-radius: 0.8rem;
-            position: relative;
-            .card--image::after {
-                content: "";
-                pos
-            }
+            border-radius: 0.8rem 0.8rem 0 0;
         }
-        .card--info {
+        .card-body {
+            grid-area: body;
+            background: $background-secondary;
+            border-radius: 0 0 0.8rem 0.8rem;
             display: flex;
             flex-direction: column;
             text-align: center;
-            h1 {
-                font-size: 2.8rem;
-                padding: 3rem 3rem 2rem 3rem;
-                font-weight: 700;
+            .card-info {
+                h4 {
+                    font-size: 2.8rem;
+                    padding: 3rem 3rem 2rem 3rem;
+                    font-weight: 700;
+                }
+                p {
+                    padding: 0 3rem;
+                    font-size: 1.5rem;
+                    color: $color-paragraph;
+                    line-height: 2.5rem;
+                    font-weight: 400;
+                }
+                span {
+                    color: $color-purple;
+                }
             }
-            p {
-                padding: 0 3rem;
-                font-size: 1.5rem;
-                color: $color-paragraph;
-                line-height: 2.5rem;
-                font-weight: 400;
+            .card-stat {
+                display: flex;
+                flex-direction: column;
+                gap: 2.5rem;
+                padding: 4rem;
+                &num {
+                    h5 {
+                        font-size: 2.4rem;
+                        font-weight: 700;
+                    }
+                    p {
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1rem;
+                        color: $color-stats;
+                        font-family: $font-secondary;
+                        padding-top: 0.5rem;
+                        font-weight: 400;
+                    }
+                }
             }
-            span {
-                color: $color-purple;
-            }
+
         }
-        .card--stats {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            gap: 2rem;
-            padding: 4rem;
-            h2 {
-                font-size: 2.4rem;
-                font-weight: 700;
-            }
-            p {
-                font-size: 1.2rem;
-                font-family: $font-secondary;
-                font-weight: 400;
-                text-transform: uppercase;
-                color: $color-stats;
-                letter-spacing: 0.1rem;
-                padding-top: 0.5rem;
-            } 
+        .card-overlay {
+            background-color: $color-purple;
+            border-radius: 0.8rem 0.8rem 0 0;
+            opacity: 0.75;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            mix-blend-mode: multiply; 
         }
     }
 }
 
+@media only screen and (min-width: 890px) {
+    .card-container {
+        .card-grid {
+            
+            grid-template-columns: minmax(35rem, 57rem) minmax(32rem, 54rem);
+            grid-template-rows: 44.6rem;
+            grid-template-areas: 
+            "body image"
+            ;
+            .card-image {
+                border-radius: 0 0.8rem 0.8rem 0;
+            }
+            .card-body {
+                border-radius: 0.8rem 0 0 0.8rem;
+            }
+            .card-overlay {
+                border-radius: 0 0.8rem 0.8rem 0;
+            }
+        }
+    }
+}
