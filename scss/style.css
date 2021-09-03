@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;400&display=swap");
 *,
 *::before,
 *::after {
@@ -130,8 +130,8 @@ html {
   letter-spacing: 0.1rem;
   color: rgba(255, 255, 255, 0.6);
   font-family: "Lexend Deca", sans-serif;
-  padding-top: 0.5rem;
-  font-weight: 400;
+  padding-top: 0.8rem;
+  font-weight: 200;
 }
 
 .card-container .card-grid .card-overlay {
@@ -157,6 +157,35 @@ html {
   }
   .card-container .card-grid .card-body {
     border-radius: 0.8rem 0 0 0.8rem;
+    padding: 6rem 7rem 7rem 7rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .card-container .card-grid .card-body .card-info h4 {
+    font-size: 3.6rem;
+    text-align: left;
+    padding: 0 0 2rem 0;
+  }
+  .card-container .card-grid .card-body .card-info p {
+    padding: 0;
+    text-align: left;
+    max-width: 370px;
+  }
+  .card-container .card-grid .card-body .card-stat {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    text-align: left;
+    gap: 2.5rem;
+    padding: 0 7rem 0 0;
   }
   .card-container .card-grid .card-overlay {
     border-radius: 0 0.8rem 0.8rem 0;
