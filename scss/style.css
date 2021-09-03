@@ -157,7 +157,7 @@ html {
   }
   .card-container .card-grid .card-body {
     border-radius: 0.8rem 0 0 0.8rem;
-    padding: 6rem 7rem 7rem 7rem;
+    padding: 7rem 7rem 6rem 7rem;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
